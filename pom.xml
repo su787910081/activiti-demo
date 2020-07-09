@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>demo-01-helloworld-01</module>
+        <module>demo-02-config-01</module>
     </modules>
 
     <parent>
