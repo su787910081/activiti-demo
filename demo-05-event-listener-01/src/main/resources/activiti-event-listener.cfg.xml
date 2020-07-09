@@ -7,16 +7,17 @@
 
 <!--        <property name="commandInvoker" ref="commandInvoker" />-->
 
-        <!-- 通过配置文件的方式添加事件监听器 -->
         <property name="eventListeners">
             <list>
+                <!-- 通过配置文件的方式添加流程事件监听器(这里是监听所有的事件，自定义监听在这里也会被监听到) -->
                 <bean class="com.imooc.activiti.helloworld.event.ProcessEventListener" />
+                <!-- 通过配置文件的方式添加自定义事件监听器(所有事件都会被监听到) -->
                 <bean class="com.imooc.activiti.helloworld.event.CustomerEventListener" />
             </list>
         </property>
         <property name="typedEventListeners">
             <map>
-                <!-- 启动事件监听 -->
+                <!-- 启动事件监听 ActivitiEventType.PROCESS_STARTED -->
                 <entry key="PROCESS_STARTED">
                     <list>
                         <bean class="com.imooc.activiti.helloworld.event.ProcessTypedEventListener" />

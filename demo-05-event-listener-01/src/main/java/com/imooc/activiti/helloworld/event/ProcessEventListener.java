@@ -14,6 +14,8 @@ public class ProcessEventListener implements ActivitiEventListener {
             log.info("eventListner: 流程启动 {}     {}", eventType, event.getProcessInstanceId());
         } else if (ActivitiEventType.PROCESS_COMPLETED.equals(eventType)) {
             log.info("eventListner: 流程结束 {}     {}", eventType, event.getProcessInstanceId());
+        } else {
+            log.error("eventListener: 其他事件 {}", eventType);
         }
     }
 

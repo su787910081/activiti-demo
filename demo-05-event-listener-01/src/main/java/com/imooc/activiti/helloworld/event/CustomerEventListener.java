@@ -25,6 +25,8 @@ public class CustomerEventListener implements ActivitiEventListener {
         ActivitiEventType eventType = event.getType();
         if (ActivitiEventType.CUSTOM.equals(eventType)) {
             log.info("通过[{}] 监听到自定义事件 {}     {}", from, eventType, event.getProcessInstanceId());
+        } else {
+            log.error("other event: {}", eventType);
         }
     }
 
