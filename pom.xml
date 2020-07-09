@@ -7,6 +7,8 @@
         <module>demo-01-helloworld-01</module>
         <module>demo-02-config-01</module>
         <module>demo-03-mdc-log-01</module>
+        <module>demo-04-history-01</module>
+        <module>demo-05-event-listener-01</module>
     </modules>
 
     <parent>
