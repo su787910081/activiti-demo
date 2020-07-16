@@ -9,13 +9,13 @@ import org.junit.Rule;
 import org.junit.Test;
 
 @Slf4j
-public class ConfigInterceptorTest {
+public class ConfigInterceptorDefaultLogTest {
     @Rule
-    public ActivitiRule activitiRule = new ActivitiRule("activiti-interceptor.cfg.xml");
+    public ActivitiRule activitiRule = new ActivitiRule("activiti-interceptor-log.cfg.xml");
 
     @Test
     @Deployment(resources = {"my-process-interceptor.bpmn20.xml"})
-    public void test01() {
+    public void test02() {
         ProcessInstance processInstance = activitiRule.getRuntimeService()
                 .startProcessInstanceByKey("my-process");
         Task task = activitiRule.getTaskService().createTaskQuery().singleResult();

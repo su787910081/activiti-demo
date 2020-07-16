@@ -2,13 +2,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- 测试自定义的日志拦截器 -->
     <bean id="processEngineConfiguration"
           class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
 
-        <property name="commandInvoker" ref="commandInvoker" />
+        <!--        <property name="commandInvoker" ref="commandInvoker" />-->
 
         <!-- 是否开启事件日志，默认值: false -->
-        <property name="enableDatabaseEventLogging" value="false" />
+        <property name="enableDatabaseEventLogging" value="false"/>
+
+        <!-- 默认值：false。是否展示出详细的日志树信息 -->
+        <!-- true: 使用DebugCommandInvoker -->
+        <!-- false: 使用commandInvoker -->
+        <!-- 当前的自定义的MDCCommandInvoker 就是extends DebugCommandInvoker，所以目前两个的效果是一样的 -->
+        <property name="enableVerboseExecutionTreeLogging" value="true"/>
 
         <!-- 拦截器的执行顺序：1、【前置】拦截器；2、default 默认的拦截器链；3、【后置】拦截器；4、commandInvoker 搭载器 -->
         <!-- 更加准确一点的统计时间最好是使用commandInvoker 来进行统计，但是误差不会太多 -->
@@ -32,6 +39,6 @@
         </property>
     </bean>
 
-    <bean id="commandInvoker" class="com.suyh.interceptor.MDCCommandInvoker" />
+    <bean id="commandInvoker" class="com.suyh.interceptor.MDCCommandInvoker"/>
 
 </beans>
