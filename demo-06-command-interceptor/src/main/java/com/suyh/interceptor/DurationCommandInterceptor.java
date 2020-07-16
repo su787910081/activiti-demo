@@ -14,13 +14,12 @@ public class DurationCommandInterceptor extends AbstractCommandInterceptor {
     public <T> T execute(CommandConfig config, Command<T> command) {
         long start = System.currentTimeMillis();
         try {
-            this.getNext().execute(config, command);
+            // 这里必须把返回值返回出来，否则下一个执行链条就会出现空指针异常
+            return this.getNext().execute(config, command);
         } finally {
             long last = System.currentTimeMillis();
             long duration = last - start;
             log.info("{} 执行时长 {} 毫秒", command.getClass().getSimpleName(), duration);
         }
-
-        return null;
     }
 }

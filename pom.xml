@@ -9,6 +9,7 @@
         <module>demo-03-mdc-log-01</module>
         <module>demo-04-history-01</module>
         <module>demo-05-event-listener-01</module>
+        <module>demo-06-command-interceptor</module>
     </modules>
 
     <parent>
