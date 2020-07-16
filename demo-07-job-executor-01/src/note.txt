@@ -1,0 +1,10 @@
+作业执行器的配置
+相关配置
+    asyncExecutorActivate: 激活作业执行器  默认不开启(false)
+    asyncExecutorXXX: 异步执行器的属性配置
+    asyncExecutor: 异步执行器bean 内部实现了一个默认的bean，这里可以配置一个自定义的bean
+
+自定义线程池
+    corePoolSize: 核心线程数
+    maxPoolSize: 最大线程数
+    queueCapacity: 堵塞队列大小

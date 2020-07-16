@@ -10,6 +10,7 @@
         <module>demo-04-history-01</module>
         <module>demo-05-event-listener-01</module>
         <module>demo-06-command-interceptor</module>
+        <module>demo-07-job-executor-01</module>
     </modules>
 
     <parent>
