@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="processEngineConfiguration"
+          class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+
+        <property name="commandInvoker" ref="commandInvoker" />
+
+        <!-- 是否开启事件日志，默认值: false -->
+        <property name="enableDatabaseEventLogging" value="false" />
+        <property name="customPreCommandInterceptors">
+            <list>
+                <!-- 配置自定义拦截器 -->
+                <bean class="com.suyh.interceptor.DurationCommandInterceptor"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="commandInvoker" class="com.suyh.interceptor.MDCCommandInvoker" />
+
+</beans>
